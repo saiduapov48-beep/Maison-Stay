@@ -1,0 +1,48 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg);
+}
+
+.main-content {
+  flex: 1;
+  padding-top: 80px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--text-accent);
+  color: var(--bg);
+}
+
+::-moz-selection {
+  background-color: var(--text-accent);
+  color: var(--bg);
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 1px solid var(--text-secondary);
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline-offset: 4px;
+}
+
+/* Smooth transitions */
+a, button, input, select, textarea {
+  transition: background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+@media print {
+  .main-content { animation: none; }
+  body { background-color: white; color: black; }
+}
